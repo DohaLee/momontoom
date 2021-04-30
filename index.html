@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momontum by DohaLee</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/bb8ee48338.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <figure class="metric-stat">
+        <span class="metric-stat__temperature">
+          <i class="fas fa-cloud-sun"></i>
+          ??℃
+        </span>
+        <span class="metric-stat__location ellipsis">Finding...</span>
+      </figure>
+      <button class="links-button menu-button">Links</button>
+      <figure class="links-box menu-closed">
+        <ul class="links-box__list">
+          <a
+            href="https://www.instagram.com/albedobond/"
+            class="links-box__list__links"
+            ><img
+              src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300"
+              class="icon"
+            />Instagram</a
+          ><a
+            href="https://twitter.com/AlbedoBond"
+            class="links-box__list__links"
+            ><img
+              src="https://icons.duckduckgo.com/ip2/www.twitter.com.ico"
+              class="icon"
+            />Twitter</a
+          ><a href="https://github.com/DohaLee" class="links-box__list__links"
+            ><img
+              src="https://icons.duckduckgo.com/ip2/www.github.com.ico"
+              class="icon"
+            />Github</a
+          >
+        </ul>
+      </figure>
+      <figure class="clock">
+        <span>00:00:00</span>
+      </figure>
+      <figure class="quote">
+        <span class="quote__span">What is your name?</span>
+        <form class="quote__form">
+          <input
+            type="text"
+            required
+            maxlength="15"
+            class="quote__form__input-name"
+          />
+        </form>
+      </figure>
+      <div class="box">
+        <figure class="to-do display-hidden">
+          <span class="to-do__span to-do__name ellipsis"
+            >Hello, Albedo Bond wefwefwefwf</span
+          >
+          <span class="to-do__span">What are your main goals for today?</span>
+          <form class="to-do__form">
+            <input
+              type="text"
+              maxlength="200"
+              required
+              class="to-do__form__input-pending"
+            />
+          </form>
+          <ul class="to-do__list-pending ellipsis"></ul>
+        </figure>
+      </div>
+      <button class="to-do__finished-button menu-button">Finished</button>
+      <figure class="to-do__finished-box menu-closed">
+        <ul class="to-do__finished-box__list-finished"></ul>
+      </figure>
+    </main>
+    <script src="src/todo.js"></script>
+  </body>
+</html>
