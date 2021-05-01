@@ -9,6 +9,7 @@ const LS_TODOS_FINISHED = "FINISHED";
 const BG_IMAGE_COUNT = 8;
 
 const INVISIBLE_CSS_CLASS = "display-hidden";
+const PENDINGLIST_TRANSLATE_X = "translateX";
 
 const clock = document.querySelector(".clock span");
 const linksButton = document.querySelector(".links-button");
@@ -31,6 +32,9 @@ const toDoInput = toDoForm.querySelector("input");
 
 const toDoUl = toDo.querySelector("ul");
 const FinishedUl = document.querySelector(".to-do__finished-box ul");
+
+const isTouchDevice = () =>
+  navigator.maxTouchPoints || "ontouchstart" in document.documentElement;
 
 function addPaddingToInt(int, n = 2) {
   const abs = Math.abs(int);
@@ -182,12 +186,20 @@ function createToDoPending(obj) {
                 <button class="finish"><i class="fas fa-check"></i></button>
               </div>`;
   const toDoButtons = li.querySelector(".buttons");
-  li.addEventListener("mouseenter", () =>
-    toDoButtons.classList.remove(INVISIBLE_CSS_CLASS)
-  );
-  li.addEventListener("mouseleave", () =>
-    toDoButtons.classList.add(INVISIBLE_CSS_CLASS)
-  );
+  if (isTouchDevice()) {
+    li.addEventListener("click", () => {
+      toDoButtons.classList.toggle(INVISIBLE_CSS_CLASS);
+      const liSpan = li.querySelector("span");
+      liSpan.classList.toggle(PENDINGLIST_TRANSLATE_X);
+    });
+  } else {
+    li.addEventListener("mouseenter", () =>
+      toDoButtons.classList.remove(INVISIBLE_CSS_CLASS)
+    );
+    li.addEventListener("mouseleave", () =>
+      toDoButtons.classList.add(INVISIBLE_CSS_CLASS)
+    );
+  }
   const toDoDelete = li.querySelector(".delete");
   const toDofinish = li.querySelector(".finish");
 

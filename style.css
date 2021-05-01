@@ -30,11 +30,13 @@ button > i {
   color: var(--color-dark);
   transition: all 100ms ease-in-out;
 }
-.menu-button:hover {
-  background-color: var(--color-white);
-  box-shadow: 0rem 0rem 0.4rem 0.2rem var(--color-shadow);
-  border-radius: 10%;
-  padding: 0.4rem;
+@media (hover: hover) {
+  .menu-button:hover {
+    background-color: var(--color-white);
+    box-shadow: 0rem 0rem 0.4rem 0.2rem var(--color-shadow);
+    border-radius: 10%;
+    padding: 0.4rem;
+  }
 }
 .menu-button:active {
   transform: scale(0.9);
@@ -48,10 +50,12 @@ a {
   cursor: pointer;
   transition: all 100ms linear;
 }
-a:hover {
-  color: var(--color-point);
-  background-color: var(--color-dark);
-  box-shadow: var(--default-box-shadow);
+@media (hover: hover) {
+  a:hover {
+    color: var(--color-point);
+    background-color: var(--color-dark);
+    box-shadow: var(--default-box-shadow);
+  }
 }
 a:active {
   color: var(--color-point);
@@ -84,7 +88,11 @@ body {
 .display-hidden {
   animation: AnimationHidden 250ms linear forwards;
 }
-
+/* @media (hover: none) {
+  .buttons.display-hidden {
+    animation: none;
+  }
+} */
 span,
 button,
 ul,
@@ -191,15 +199,15 @@ li {
   cursor: pointer;
   transition: all 100ms linear;
 }
-
-.to-do__finished-box__list-finished li:hover {
-  background-color: var(--color-dark);
-  box-shadow: var(--default-box-shadow);
+@media (hover: hover) {
+  .to-do__finished-box__list-finished li:hover {
+    background-color: var(--color-dark);
+    box-shadow: var(--default-box-shadow);
+  }
+  .to-do__finished-box__list-finished li:hover button > i {
+    color: var(--color-point);
+  }
 }
-.to-do__finished-box__list-finished li:hover button > i {
-  color: var(--color-point);
-}
-
 .to-do__finished-box__list-finished li:active {
   color: var(--color-point);
   transform: scale(0.9);
@@ -436,9 +444,26 @@ main {
   will-change: transform;
   transition: all 300ms ease-in;
 }
-.to-do__list-pending li:hover span {
-  transform: translateX(-16%);
+@media (hover: hover) {
+  .to-do__list-pending li:hover span {
+    transform: translateX(-16%);
+  }
 }
+@media (hover: none) {
+  .translateX {
+    transform: translateX(-16%);
+  }
+}
+/* @media (hover: hover) {
+  .to-do__list-pending li:hover span {
+    transform: translateX(-16%);
+  }
+}
+@media (hover: none) {
+  .to-do__list-pending li span {
+    transform: translateX(-16%);
+  }
+} */
 
 .to-do__list-pending li .buttons {
   position: absolute;
@@ -457,18 +482,20 @@ main {
 .buttons .delete {
   color: #e55039;
 }
-.buttons .delete:hover i {
-  color: red;
-  box-shadow: 0 0 0.8rem 0.8rem var(--color-white);
-  border-radius: 25%;
-}
 .buttons .finish {
   color: #78e08f;
 }
-.buttons .finish:hover i {
-  color: lawngreen;
-  box-shadow: 0 0 0.8rem 0.5rem var(--color-white);
-  border-radius: 25%;
+@media (hover: hover) {
+  .buttons .delete:hover i {
+    color: red;
+    box-shadow: 0 0 0.8rem 0.8rem var(--color-white);
+    border-radius: 25%;
+  }
+  .buttons .finish:hover i {
+    color: lawngreen;
+    box-shadow: 0 0 0.8rem 0.5rem var(--color-white);
+    border-radius: 25%;
+  }
 }
 .buttons button {
   padding: 0 0.6rem;
